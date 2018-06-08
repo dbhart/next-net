@@ -19,7 +19,36 @@ Scope
 
 Definitions, acronyms, and abbreviations
 ----------------------------------------
+The following terms are defined for clarity to avoid possible misunderstandings due to differeing scientific discipline backgrounds.
 
+- **Water Distribution System (WDS)**: A water distribution system provides clean water from a source to
+  customers or other recipients. In this document, a WDS specifically referrs to a *pressurized, potable water* 
+  delivery system; surface water or gravity-only flow is not the intended use of this software.
+- **Model**: A model is *any* representation of one thing/concept that is not the actual thing/concept. Just as 
+  a model airplane is not an actual airplane, so a computer model is a representation of some other physical or
+  conceptual object or relationship.
+  - **Water Network Model**: The water network model is the representation of the physical components of the WDS.
+    It is *not* the mathematical representation of how these physical components behave. The network model is
+    comprised of a directed graph with various properties assigned to the different nodes (vertices) and links (edges).
+  - **Component Model**: Each physical component of the network has mathematical equations that describe its behavior
+    under various conditions. For example, a pipe has material properties that govern how much head (pressure) is lost
+    between the two ends; the Hazen-Williams headloss model is one possible choice for a pipe's component model.
+  - **Hydraulic Model**: The full set of equations from each of the component models combined with constraints,
+    variables and boundary conditions comprises the hydraulic model. At this point, the network graph is not (necessarily)
+    part of the model, as the relationships are already captured through the constraints.
+  - **Water Quality (Quality) Models**: The models that describe how chemicals react with various components or each 
+    other are the water quality models. There are multiple models here, such as water age, tracers, or reactive models.
+    The transport model is separate
+  - **WQ Transport Model**: The numerical model that describes the fate and transport of water moving through the system.
+  - **Data Model**: A specific implementation that represents the network model or numerical models in memory or on disk.
+    There will be a data model for the outputs/results of a simulation as well.
+- **Component**: Component could refer to a structural (code) component or a physical component. Unless otherwise 
+  specified in the text, or completely obvious from context, component should be read to mean a physical component of the
+  WDS. The components that have existed in EPANET 2.x are: junction, tank, reservoir, valve, pump, pipe and emitter.
+- **Solver**: A tool or code that solves a numerical model (set of equations and constraints) to find a solution.
+- **Simulation**: The models and the associated solution to the numerical model 
+  as requested for specific input properties and parameters.
+- **Simulator**: A software code that performs simulations; in this case, the tool being developed is a WDS simulator.
 
 
 References
@@ -288,6 +317,8 @@ Maintainability
 
 Portability
 ^^^^^^^^^^^
+This software tool must be a cross-platform tool.
+
 
 Other Requirements
 ------------------
